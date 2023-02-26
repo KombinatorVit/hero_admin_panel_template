@@ -39,7 +39,6 @@ const HeroesList = () => {
             .then(data => console.log(data, 'Deleted'))
             .then(dispatch(heroDeleted(id)))
             .catch(err => console.log(err));
-        // eslint-disable-next-line
     }, [request]);
 
     if (heroesLoadingStatus === "loading") {
