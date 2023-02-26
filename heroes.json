@@ -5,12 +5,6 @@
       "name": "Первый герой",
       "description": "Первый герой в рейтинге!",
       "element": "fire"
-    },
-    {
-      "id": "b2adc733-717c-4ffb-81c7-87d16fde43a6",
-      "name": "Виталик",
-      "description": "ГГГ",
-      "element": "wind"
     }
   ],
   "filters": [
