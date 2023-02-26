@@ -17,6 +17,12 @@
       "name": "авыцавы",
       "description": "выавыа",
       "element": "wind"
+    },
+    {
+      "id": "2fd002ab-2d6a-4b33-9b3d-51c42135ada9",
+      "name": "csdc",
+      "description": "cxzc",
+      "element": "wind"
     }
   ],
   "filters": [
