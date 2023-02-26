@@ -7,15 +7,15 @@
       "element": "water"
     },
     {
-      "id": "f55df45d-94dc-4a14-a3db-3b05c71b0167",
-      "name": "Слоник",
-      "description": "махнатый додик",
-      "element": "water"
-    },
-    {
       "id": "07294726-dd53-469f-a3c4-8c75ec603015",
       "name": "dsad",
       "description": "dsad",
+      "element": "wind"
+    },
+    {
+      "id": "e24fb2fa-6218-4e3f-9665-2d6bafe42b7c",
+      "name": "авыцавы",
+      "description": "выавыа",
       "element": "wind"
     }
   ],
