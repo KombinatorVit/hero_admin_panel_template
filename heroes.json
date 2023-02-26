@@ -5,6 +5,12 @@
       "name": "ывамыв",
       "description": "аыва",
       "element": "water"
+    },
+    {
+      "id": "f55df45d-94dc-4a14-a3db-3b05c71b0167",
+      "name": "Слоник",
+      "description": "махнатый додик",
+      "element": "water"
     }
   ],
   "filters": [
