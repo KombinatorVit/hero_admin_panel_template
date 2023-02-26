@@ -1,10 +1,10 @@
 {
   "heroes": [
     {
-      "id": 1,
-      "name": "Первый герой",
-      "description": "Первый герой в рейтинге!",
-      "element": "fire"
+      "id": "4a278c33-9a0c-4861-a22b-4a8cbf236621",
+      "name": "ывамыв",
+      "description": "аыва",
+      "element": "water"
     }
   ],
   "filters": [
