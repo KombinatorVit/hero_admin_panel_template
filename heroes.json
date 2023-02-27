@@ -7,16 +7,22 @@
       "element": "fire"
     },
     {
-      "id": 2,
-      "name": "Неизвестный герой",
-      "description": "Скрывающийся в тени",
+      "id": "dc100a65-879e-4e04-b58f-6fa78059c7bc",
+      "name": "йфаыв",
+      "description": "авыап",
+      "element": "water"
+    },
+    {
+      "id": "8430bff8-d7b4-445c-9b27-164987c7a19d",
+      "name": "пвап",
+      "description": "пвап",
       "element": "wind"
     },
     {
-      "id": "7eee3d29-baca-4c32-a021-143428b7ce52",
-      "name": "df",
-      "description": "cdwscvsd",
-      "element": "water"
+      "id": "e0a4f90f-828f-481e-a29d-33456291dadc",
+      "name": "ава",
+      "description": "авва",
+      "element": "earth"
     }
   ],
   "filters": [
