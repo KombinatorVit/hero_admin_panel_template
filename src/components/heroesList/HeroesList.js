@@ -32,7 +32,6 @@ const HeroesList = () => {
 
     const onDelete = useCallback((id) => {
         deleteHero(id);
-        // eslint-disable-next-line
     }, []);
 
     if (isLoading) {

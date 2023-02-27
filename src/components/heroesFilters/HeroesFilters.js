@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import store from '../../store';
 
 import {filtersChanged, fetchFilters, selectAll} from './filtersSlice';
-import Spinner from '../spinner/Spinner';
+import Spinner from "../spinner/Spinner";
 
 const HeroesFilters = () => {
 
