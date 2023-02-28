@@ -1,11 +1,12 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
+import {Hero} from "../type/mainType";
 
 export const apiSlice = createApi({
     reducerPath: 'api',
     baseQuery: fetchBaseQuery({baseUrl: 'http://localhost:3001'}),
     tagTypes: ['Heroes'],
     endpoints: builder => ({
-        getHeroes: builder.query({
+        getHeroes: builder.query<Hero[], undefined>({
             query: () => '/heroes',
             providesTags: ['Heroes']
         }),
