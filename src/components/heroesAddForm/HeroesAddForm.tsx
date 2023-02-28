@@ -1,10 +1,11 @@
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { v4 as uuidv4 } from 'uuid';
+import {FormEvent, useState} from 'react';
+import {v4 as uuidv4} from 'uuid';
 import store from '../../store';
 
-import { selectAll } from '../heroesFilters/filtersSlice';
-import { useCreateHeroMutation } from '../../api/apiSlice';
+import {selectAll} from '../heroesFilters/filtersSlice';
+import {useCreateHeroMutation} from '../../api/apiSlice';
+import {useAppSelector} from "../../hooks/hooks";
+import {Filter} from "../../type/mainType";
 
 const HeroesAddForm = () => {
     const [heroName, setHeroName] = useState('');
@@ -13,10 +14,10 @@ const HeroesAddForm = () => {
 
     const [createHero] = useCreateHeroMutation();
 
-    const {filtersLoadingStatus} = useSelector(state => state.filters);
+    const {filtersLoadingStatus} = useAppSelector(state => state.filters);
     const filters = selectAll(store.getState());
 
-    const onSubmitHandler = (e) => {
+    const onSubmitHandler = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const newHero = {
             id: uuidv4(),
@@ -32,16 +33,16 @@ const HeroesAddForm = () => {
         setHeroElement('');
     }
 
-    const renderFilters = (filters, status) => {
+    const renderFilters = (filters: Filter[], status: string) => {
         if (status === "loading") {
             return <option>Загрузка элементов</option>
         } else if (status === "error") {
             return <option>Ошибка загрузки</option>
         }
 
-        if (filters && filters.length > 0 ) {
+        if (filters && filters.length > 0) {
             return filters.map(({name, label}) => {
-                if (name === 'all')  return;
+                if (name === 'all') return;
 
                 return <option key={name} value={name}>{label}</option>
             })
@@ -86,7 +87,7 @@ const HeroesAddForm = () => {
                     value={heroElement}
                     onChange={(e) => setHeroElement(e.target.value)}>
                     <option value="">Я владею элементом...</option>
-                    {renderFilters(filters, filtersLoadingStatus)}
+                    {renderFilters((filters) as Filter[], filtersLoadingStatus)}
                 </select>
             </div>
 

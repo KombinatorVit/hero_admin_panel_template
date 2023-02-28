@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk, createEntityAdapter } from "@reduxjs/toolkit";
 import {useHttp} from '../../hooks/http.hook';
+import {RootState} from "../../store";
 
 const filtersAdapter = createEntityAdapter();
 
@@ -42,7 +43,7 @@ const {actions, reducer} = filtersSlice;
 
 export default reducer;
 
-export const {selectAll} = filtersAdapter.getSelectors(state => state.filters);
+export const {selectAll} = filtersAdapter.getSelectors<RootState>(state => state.filters);
 
 export const {
     filtersChanged

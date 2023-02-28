@@ -1,5 +1,4 @@
 import {FC, useCallback, useMemo} from 'react';
-import {useSelector} from 'react-redux';
 import {CSSTransition, TransitionGroup} from 'react-transition-group';
 
 import {useGetHeroesQuery, useDeleteHeroMutation} from '../../api/apiSlice';
@@ -8,17 +7,19 @@ import HeroesListItem from "../heroesListItem/HeroesListItem";
 import Spinner from '../spinner/Spinner';
 
 import './heroesList.scss';
+import {useAppSelector} from "../../hooks/hooks";
+import {Hero} from "../../type/mainType";
 
 const HeroesList: FC = () => {
     const {
         data: heroes = [],
         isLoading,
         isError,
-    } = useGetHeroesQuery();
+    } = useGetHeroesQuery(10);
 
     const [deleteHero] = useDeleteHeroMutation();
 
-    const activeFilter = useSelector(state => state.filters.activeFilter);
+    const activeFilter = useAppSelector(state => state.filters.activeFilter);
 
     const filteredHeroes = useMemo(() => {
         const filteredHeroes = heroes.slice();
@@ -30,7 +31,7 @@ const HeroesList: FC = () => {
         }
     }, [heroes, activeFilter]);
 
-    const onDelete = useCallback((id) => {
+    const onDelete = useCallback((id:string)  => {
         deleteHero(id);
     }, []);
 
@@ -40,13 +41,13 @@ const HeroesList: FC = () => {
         return <h5 className="text-center mt-5">Ошибка загрузки</h5>
     }
 
-    const renderHeroesList = (arr) => {
+    const renderHeroesList = (arr: Hero[]) => {
         if (arr.length === 0) {
             return (
                 <CSSTransition
                     timeout={0}
                     classNames="hero">
-                    <h5 className="text-center mt-5">Героев пока нет</h5>
+                    <h5 className="text-center mt-5">Героев пока нет, увы</h5>
                 </CSSTransition>
             )
         }
@@ -57,7 +58,7 @@ const HeroesList: FC = () => {
                     key={id}
                     timeout={500}
                     classNames="hero">
-                    <HeroesListItem  {...props} onDelete={() => onDelete(id)}/>
+                    <HeroesListItem  {...props} onDelete={() =>onDelete(id)} />
                 </CSSTransition>
             )
         })

@@ -1,5 +1,15 @@
+import {FC} from "react";
 
-const HeroesListItem = ({name, description, element, onDelete}) => {
+
+type HeroesListItemPropsType = {
+    name: string
+    description: string
+    element: string
+    onDelete: () => void
+}
+
+
+const HeroesListItem: FC<HeroesListItemPropsType> = ({name, description, element, onDelete}): JSX.Element => {
 
     let elementClassName;
 

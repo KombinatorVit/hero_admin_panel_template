@@ -6,11 +6,15 @@ export const apiSlice = createApi({
     baseQuery: fetchBaseQuery({baseUrl: 'http://localhost:3001'}),
     tagTypes: ['Heroes'],
     endpoints: builder => ({
-        getHeroes: builder.query<Hero[], undefined>({
-            query: () => '/heroes',
+        getHeroes: builder.query<Hero[], number>({
+            query: (limit: number = 5) => ({
+                url: '/heroes', params: {
+                    _limit: limit
+                }
+            }),
             providesTags: ['Heroes']
         }),
-        createHero: builder.mutation({
+        createHero: builder.mutation<Hero[], Hero>({
             query: hero => ({
                 url: '/heroes',
                 method: 'POST',
@@ -18,7 +22,7 @@ export const apiSlice = createApi({
             }),
             invalidatesTags: ['Heroes']
         }),
-        deleteHero: builder.mutation({
+        deleteHero: builder.mutation<Hero[], string>({
             query: id => ({
                 url: `/heroes/${id}`,
                 method: 'DELETE'
